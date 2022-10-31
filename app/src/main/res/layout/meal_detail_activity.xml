@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:img="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.mvvm.okcredit.ui.mealdetail.model.MealDetailsModelResponse.Meal" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGrayDark"
+        tools:context=".ui.mealdetail.MealDetailActivity">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_8sdp"
+            app:cardBackgroundColor="@color/color232015"
+            app:cardCornerRadius="@dimen/_4sdp"
+            app:cardElevation="@dimen/_2sdp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTitleMain"
+                    style="@style/blackBold16"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorC49051"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{viewmodel.strMeal}"
+                    tools:text="Title" />
+
+                <ImageView
+                    android:id="@+id/imgCoverFood"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200sdp"
+                    android:scaleType="centerCrop"
+                    img:url="@{viewmodel.strMealThumb}"
+                    tools:src="@drawable/ic_food_image_one" />
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    style="@style/blackBold16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/colorC49051"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{viewmodel.strArea}"
+                    tools:text="Title" />
+
+                <TextView
+                    android:id="@+id/tvFoodNameWithDetails"
+                    style="@style/blackRegular12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/white"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:gravity="start"
+                    android:layout_marginBottom="@dimen/_6sdp"
+                    android:text="@{`\u2022 ` +  viewmodel.strMeasure1.concat(` ` + viewmodel.strIngredient1).concat(`  \u2022 ` +  viewmodel.strMeasure2.concat(` ` + viewmodel.strIngredient2)).concat(`  \u2022 ` +  viewmodel.strMeasure3.concat(` ` + viewmodel.strIngredient3)).concat(`  \u2022 ` +  viewmodel.strMeasure4.concat( ` ` + viewmodel.strIngredient4)).concat(`  \u2022 ` +  viewmodel.strMeasure5.concat(` ` + viewmodel.strIngredient5)).concat(`  \u2022 ` +  viewmodel.strMeasure6.concat( ` ` + viewmodel.strIngredient6)).concat(`  \u2022 ` +  viewmodel.strMeasure7.concat(` ` + viewmodel.strIngredient7)).concat(`  \u2022 ` +  viewmodel.strMeasure8.concat(` ` + viewmodel.strIngredient8)).concat(`  \u2022 ` +  viewmodel.strMeasure9.concat( ` ` + viewmodel.strIngredient9)).concat(`  \u2022 ` +  viewmodel.strMeasure10.concat(` ` + viewmodel.strIngredient10)).concat(`  \u2022 ` +  viewmodel.strMeasure11.concat(` ` + viewmodel.strIngredient11)).concat(`  \u2022 ` +  viewmodel.strMeasure12.concat(` ` + viewmodel.strIngredient12)).concat(`  \u2022 ` +  viewmodel.strMeasure13.concat(` ` + viewmodel.strIngredient13))}"
+                    tools:text="FoodNameWithDetails" />
+
+                <TextView
+                    android:id="@+id/tvInstruction"
+                    style="@style/blackBold16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorC49051"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="Instruction"
+                    tools:text="Instruction" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/tvInstructions"
+                            style="@style/blackRegular12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:layout_gravity="center|top"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:ellipsize="end"
+                            android:inputType="textMultiLine"
+                            android:text="@{viewmodel.strInstructions.toString()}"
+                            tools:text="strInstructions" />
+                    </LinearLayout>
+                    </androidx.core.widget.NestedScrollView>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
